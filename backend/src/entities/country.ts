@@ -29,6 +29,6 @@ export class Country extends BaseEntity {
   emoji!: string;
 
   @ManyToOne(() => Continent, (continent) => continent.countries)
-  @Field(() => [Continent])
+  @Field(() => Continent)
   continent!: Continent;
 }

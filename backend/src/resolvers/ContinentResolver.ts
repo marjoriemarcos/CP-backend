@@ -1,5 +1,4 @@
 import { Arg, Field, InputType, Mutation, Query, Resolver } from "type-graphql";
-import { Country } from "../entities/country";
 import { Continent } from "../entities/continent";
 
 @InputType()

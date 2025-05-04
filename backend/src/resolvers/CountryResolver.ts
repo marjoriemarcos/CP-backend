@@ -21,7 +21,7 @@ class CountryInput {
   @Field()
   emoji!: string;
 
-  @Field(() => String)
+  @Field(() => ID)
   continent_id!: string;
 }
 
@@ -55,9 +55,12 @@ class CountryResolver {
 
   @Mutation(() => Country)
   async createCountry(@Arg("data") data: CountryInput) {
+    console.log("🚀 ~ CountryResolver ~ createCountry ~ data:", data);
+
     const continent = await Continent.findOneBy({
       id: data.continent_id,
     });
+    console.log("🚀 ~ CountryResolver ~ createCountry ~ continent:", continent);
     if (!continent) throw new Error("Continent not found");
 
     const country = new Country();
